@@ -11,7 +11,7 @@ function Thing({ initName }) {
 
   return (
     <div className="Thing" style={{ marginTop: '20px' }}>
-      <button onClick={handleClick} type='checkbox' />
+      <button onClick={handleClick} type='checkbox'>rename</button>
       <h1>{name}</h1>
     </div>
   )
