@@ -11,28 +11,36 @@ function Thing({ initName }) {
 
   return (
     <div className="Thing" style={{ marginTop: '20px' }}>
-      <button onClick={handleClick} type='checkbox'>rename</button>
+      <button onClick={handleClick}>rename</button>
       <h1>{name}</h1>
     </div>
   )
 }
 
 function App() {
+  const [things, setThings] = useState([
+    { id: 1, name: "skibidys" }
+  ])
+
   function handleClick() {
-    const newName = prompt('Enter the name for the new Thing:', 'New Thing');
+    const newName = prompt('Enter the name for the new Thing:', 'New Thing')
     if (newName) {
-      const newThing = <li key={newName}><Thing initName={newName} /></li>;
-      const list = document.getElementById('list');
-      list.appendChild(newThing);
-      console.log('New Thing added:', newName);
+      const newThing = { id: Date.now(), name: newName }
+      setThings([...things, newThing])
     }
   }
+
   return (
     <div className="App">
-        <list id="list">
-          <li><Thing initName="skibidys" /></li>
-        </list> <br />
-        <button onClick={handleClick}>Add thing to-do</button>
+      <ul>
+        {things.map((thing) => (
+          <li key={thing.id}>
+            <Thing initName={thing.name} />
+          </li>
+        ))}
+      </ul>
+      <br />
+      <button onClick={handleClick}>Add thing to-do</button>
     </div>
   )
 }
