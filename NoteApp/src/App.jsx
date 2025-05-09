@@ -4,20 +4,34 @@ import './index.css'
 
 function Thing({ initName }) {
   const [name, setName] = useState(initName)
+  const [checked, setChecked] = useState(false)
 
-  const handleClick = () => {
+  const handleRename = () => {
     setName(prompt('Enter new name:', name))
+  }
+
+  const handleCheck = () => {
+    setChecked(!checked)
   }
 
   return (
     <div className="Thing">
       <div className="thing-content">
-        <h1>{name}</h1>
-        <button onClick={handleClick}>Rename</button>
+        <input
+          type="checkbox"
+          checked={checked}
+          onChange={handleCheck}
+          className="thing-checkbox"
+        />
+        <h1 className={checked ? "thing-text checked" : "thing-text"}>
+          {name}
+        </h1>
+        <button onClick={handleRename}>Rename</button>
       </div>
     </div>
-  )  
+  )
 }
+
 
 function App() {
   const [things, setThings] = useState([
