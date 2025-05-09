@@ -15,19 +15,19 @@ function Thing({ initName }) {
   }
 
   return (
-    <div className="Thing">
-      <div className="thing-content">
-        <input
-          type="checkbox"
-          checked={checked}
-          onChange={handleCheck}
-          className="thing-checkbox"
-        />
+    <div className="thing-content">
+      <input
+        type="checkbox"
+        checked={checked}
+        onChange={handleCheck}
+        className="thing-checkbox"
+      />
+      <div className="thing-text-container">
         <h1 className={checked ? "thing-text checked" : "thing-text"}>
           {name}
         </h1>
-        <button onClick={handleRename}>Rename</button>
       </div>
+      <button onClick={handleRename}>Rename</button>
     </div>
   )
 }
@@ -48,14 +48,14 @@ function App() {
 
   return (
     <div className="App">
-      <ul style={{ padding: 0 }}>
+      <ul style={{ padding: 16 }}>
         {things.map((thing) => (
           <li key={thing.id}>
             <Thing initName={thing.name} />
           </li>
         ))}
       </ul>
-  
+      
       <button onClick={handleClick} id='Add-button'>
         Add thing to-do
       </button>
