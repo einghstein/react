@@ -10,11 +10,13 @@ function Thing({ initName }) {
   }
 
   return (
-    <div className="Thing" style={{ marginTop: '20px' }}>
-      <button onClick={handleClick}>rename</button>
-      <h1>{name}</h1>
+    <div className="Thing">
+      <div className="thing-content">
+        <h1>{name}</h1>
+        <button onClick={handleClick}>Rename</button>
+      </div>
     </div>
-  )
+  )  
 }
 
 function App() {
@@ -32,17 +34,19 @@ function App() {
 
   return (
     <div className="App">
-      <ul>
+      <ul style={{ padding: 0 }}>
         {things.map((thing) => (
           <li key={thing.id}>
             <Thing initName={thing.name} />
           </li>
         ))}
       </ul>
-      <br />
-      <button onClick={handleClick}>Add thing to-do</button>
+  
+      <button onClick={handleClick} id='Add-button'>
+        Add thing to-do
+      </button>
     </div>
-  )
+  )  
 }
 
 export default App
