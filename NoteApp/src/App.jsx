@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import './App.css'
 import './index.css'
 
 function Thing({ initName }) {
@@ -46,6 +45,15 @@ function App() {
     }
   }
 
+  function handleDeleteEmpty() {
+    for (let i = 0; i < things.length; i++) {
+      if (things[i].checked == true) {
+        
+        handleDeleteEmpty()
+      }
+    }
+  }
+
   return (
     <div className="App">
       <ul style={{ padding: 16 }}>
@@ -58,6 +66,9 @@ function App() {
       
       <button onClick={handleClick} id='Add-button'>
         Add thing to-do
+      </button>
+      <button onClick={handleDeleteEmpty} id='Remove-button' style={{ marginTop: 20 }}>
+        Delete done things
       </button>
     </div>
   )  

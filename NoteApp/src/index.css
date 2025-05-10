@@ -92,6 +92,9 @@ li {
   text-decoration: line-through;
 }
 
+button {
+  font-size: 14px;
+}
 
 /* Modern dark-themed button */
 #Add-button {
@@ -105,5 +108,20 @@ li {
 }
 
 #Add-button:hover {
+  background-color: #0056b3;
+}
+
+/* Modern dark-themed button */
+#Remove-button {
+  padding: 6px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+#Remove-button:hover {
   background-color: #0056b3;
 }
